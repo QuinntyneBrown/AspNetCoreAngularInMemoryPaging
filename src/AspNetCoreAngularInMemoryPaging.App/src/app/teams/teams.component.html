@@ -1,5 +1,5 @@
 <ng-container *ngIf="teams$ | async as teams">
-
+  <h1>Teams</h1>
   <ul>
     <li *ngFor="let team of teams | slice:start:end">
       <a>{{ team.city }} {{ team.name }}</a>
