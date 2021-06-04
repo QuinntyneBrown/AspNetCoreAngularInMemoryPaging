@@ -1,0 +1,16 @@
+<ng-container *ngIf="teams$ | async as teams">
+
+  <ul>
+    <li *ngFor="let team of teams | slice:start:end">
+      <a>{{ team.city }} {{ team.name }}</a>
+    </li>
+  </ul>
+
+  <mat-paginator
+    *ngIf="teams.length > 1"
+    [length]="teams.length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="handlePageEvent($event)"
+  ></mat-paginator>
+</ng-container>

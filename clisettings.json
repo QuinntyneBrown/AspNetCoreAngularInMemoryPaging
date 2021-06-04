@@ -1,0 +1,17 @@
+{
+  "domainNamespace": "AspNetCoreAngularInMemoryPaging.Api",
+  "applicationNamespace": "AspNetCoreAngularInMemoryPaging.Api",
+  "infrastructureNamespace": "AspNetCoreAngularInMemoryPaging.Api",
+  "apiNamespace": "AspNetCoreAngularInMemoryPaging.Api",
+  "domainDirectory": "C:\\Projects\\AspNetCoreAngularInMemoryPaging\\src\\AspNetCoreAngularInMemoryPaging.Api",
+  "applicationDirectory": "C:\\Projects\\AspNetCoreAngularInMemoryPaging\\src\\AspNetCoreAngularInMemoryPaging.Api",
+  "infrastructureDirectory": "C:\\Projects\\AspNetCoreAngularInMemoryPaging\\src\\AspNetCoreAngularInMemoryPaging.Api",
+  "apiDirectory": "C:\\Projects\\AspNetCoreAngularInMemoryPaging\\src\\AspNetCoreAngularInMemoryPaging.Api",
+  "appDirectories": [ "C:\\Projects\\AspNetCoreAngularInMemoryPaging\\src\\AspNetCoreAngularInMemoryPaging.App" ],
+  "path": "C:\\Projects\\AspNetCoreAngularInMemoryPaging",
+  "dbContext": "AspNetCoreAngularInMemoryPagingDbContext",
+  "sourceFolder": "src",
+  "resources": [
+    "Team"
+  ]
+}

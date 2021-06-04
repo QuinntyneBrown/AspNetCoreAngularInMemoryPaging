@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{13238051-2D1D-4B78-8374-BAF3CAE9223B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreAngularInMemoryPaging.Api", "src\AspNetCoreAngularInMemoryPaging.Api\AspNetCoreAngularInMemoryPaging.Api.csproj", "{88206A11-4335-4938-8B65-87CF512EBEDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CF3248B6-E7B2-443E-9263-211C7C137265}"
+	ProjectSection(SolutionItems) = preProject
+		clisettings.json = clisettings.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88206A11-4335-4938-8B65-87CF512EBEDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88206A11-4335-4938-8B65-87CF512EBEDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88206A11-4335-4938-8B65-87CF512EBEDB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{88206A11-4335-4938-8B65-87CF512EBEDB}.Debug|x64.Build.0 = Debug|Any CPU
+		{88206A11-4335-4938-8B65-87CF512EBEDB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{88206A11-4335-4938-8B65-87CF512EBEDB}.Debug|x86.Build.0 = Debug|Any CPU
+		{88206A11-4335-4938-8B65-87CF512EBEDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88206A11-4335-4938-8B65-87CF512EBEDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88206A11-4335-4938-8B65-87CF512EBEDB}.Release|x64.ActiveCfg = Release|Any CPU
+		{88206A11-4335-4938-8B65-87CF512EBEDB}.Release|x64.Build.0 = Release|Any CPU
+		{88206A11-4335-4938-8B65-87CF512EBEDB}.Release|x86.ActiveCfg = Release|Any CPU
+		{88206A11-4335-4938-8B65-87CF512EBEDB}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{88206A11-4335-4938-8B65-87CF512EBEDB} = {13238051-2D1D-4B78-8374-BAF3CAE9223B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F9D6A8BF-75C0-45B7-832D-C0DBA1EB446A}
+	EndGlobalSection
+EndGlobal
