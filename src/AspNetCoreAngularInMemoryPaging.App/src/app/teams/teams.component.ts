@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { PageEvent } from '@angular/material/paginator';
+import { MatPaginator } from '@angular/material/paginator';
 import { Team, TeamService } from '@api';
 import { TeamPopupComponent } from '@shared/material/popups/team-popup/team-popup.component';
 import { Observable, Subject } from 'rxjs';
@@ -17,13 +17,17 @@ export class TeamsComponent {
 
   private readonly _refresh$: Subject<void> = new Subject();
 
+  @ViewChild(MatPaginator, { static: false }) private readonly _paginator: MatPaginator | undefined;
+
   public readonly vm$: Observable<{
     teams: Team[]
-  }> = this._refresh$
-  .pipe(
+  }> = this._refresh$.pipe(tap(x => {
+    this._paginator.pageIndex = 0;
+    this.pageIndex = 0;
+  })).pipe(
     startWith(true),
     switchMap(x => this._teamService.get()),
-    map(teams => ({teams}))
+    map(teams => ({ teams}))
   )
 
 
@@ -47,9 +51,7 @@ export class TeamsComponent {
     .afterClosed()
     .pipe(
       takeUntil(this._destroyed$),
-      tap(x => {
-        this._refresh$.next();
-      })
+      tap(x => this._refresh$.next())
     )
     .subscribe();
   }

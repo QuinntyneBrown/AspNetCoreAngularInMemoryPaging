@@ -15,4 +15,14 @@
     [pageSizeOptions]="pageSizeOptions"
     (page)="pageIndex = $event.pageIndex; pageSize = $event.pageSize;"
   ></mat-paginator>
+
 </ng-container>
+
+<mat-paginator
+
+[length]="0"
+[pageSize]="0"
+[pageSizeOptions]="pageSizeOptions"
+(page)="pageIndex = $event.pageIndex; pageSize = $event.pageSize;"
+></mat-paginator>
+
