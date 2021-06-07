@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { Team, TeamService } from '@api';
-import { Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { TeamPopupComponent } from '@shared/material/popups/team-popup/team-popup.component';
+import { Observable, Subject } from 'rxjs';
+import { map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-teams',
@@ -11,7 +13,20 @@ import { map, switchMap } from 'rxjs/operators';
 })
 export class TeamsComponent {
 
-  public readonly teams$: Observable<Team[]> = this._teamService.get()
+  private readonly _destroyed$: Subject<void> = new Subject();
+
+  private readonly _refresh$: Subject<void> = new Subject();
+
+  public readonly vm$: Observable<{
+    teams: Team[]
+  }> = this._refresh$
+  .pipe(
+    startWith(true),
+    switchMap(x => this._teamService.get()),
+    map(teams => ({teams}))
+  )
+
+
   public pageSize = 5;
   public pageIndex = 0;
   public get start() {
@@ -23,11 +38,19 @@ export class TeamsComponent {
   public readonly pageSizeOptions: number[] = [5, 10, 25, 100];
 
   constructor(
-    private readonly _teamService: TeamService
+    private readonly _teamService: TeamService,
+    private readonly _dialog: MatDialog
   ) { }
 
-  public handlePageEvent($event: PageEvent) {
-    this.pageIndex = $event.pageIndex;
-    this.pageSize = $event.pageSize;
+  edit(team: Team) {
+    this._dialog.open<TeamPopupComponent>(TeamPopupComponent)
+    .afterClosed()
+    .pipe(
+      takeUntil(this._destroyed$),
+      tap(x => {
+        this._refresh$.next();
+      })
+    )
+    .subscribe();
   }
 }

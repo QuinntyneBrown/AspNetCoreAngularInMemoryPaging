@@ -15,4 +15,13 @@
   h1 {
     margin: 60px 0 20px;
   }
+
+  li {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+  }
+
+  .actions__edit {
+    cursor: pointer;
+  }
 }

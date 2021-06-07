@@ -1,16 +1,18 @@
-<ng-container *ngIf="teams$ | async as teams">
+<ng-container *ngIf="vm$ | async as vm">
+
   <h1>Teams</h1>
   <ul>
-    <li *ngFor="let team of teams | slice:start:end">
+    <li *ngFor="let team of vm.teams | slice:start:end">
       <a>{{ team.city }} {{ team.name }}</a>
+      <a class="actions__edit" (click)="edit(team)">Edit</a>
     </li>
   </ul>
 
   <mat-paginator
-    *ngIf="teams.length > 1"
-    [length]="teams.length"
+    *ngIf="vm.teams.length > 1"
+    [length]="vm.teams.length"
     [pageSize]="pageSize"
     [pageSizeOptions]="pageSizeOptions"
-    (page)="handlePageEvent($event)"
+    (page)="pageIndex = $event.pageIndex; pageSize = $event.pageSize;"
   ></mat-paginator>
 </ng-container>
