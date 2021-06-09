@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 import { Team, TeamService } from '@api';
 import { TeamPopupComponent } from '@shared/material/popups/team-popup/team-popup.component';
 import { Observable, Subject } from 'rxjs';
@@ -43,7 +44,8 @@ export class TeamsComponent {
 
   constructor(
     private readonly _teamService: TeamService,
-    private readonly _dialog: MatDialog
+    private readonly _dialog: MatDialog,
+    private readonly _router: Router
   ) { }
 
   edit(team: Team) {
@@ -54,5 +56,9 @@ export class TeamsComponent {
       tap(x => this._refresh$.next())
     )
     .subscribe();
+  }
+
+  detail(team: Team) {
+    this._router.navigate(['/','detail',team.teamId])
   }
 }

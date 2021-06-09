@@ -6,6 +6,7 @@
 
   a  {
     line-height: 1.85em;
+    margin: 0 10px;
   }
 
   display: block;
@@ -18,7 +19,7 @@
 
   li {
     display: grid;
-    grid-template-columns: 1fr min-content;
+    grid-template-columns: 4fr 1fr;
   }
 
   .actions__edit {

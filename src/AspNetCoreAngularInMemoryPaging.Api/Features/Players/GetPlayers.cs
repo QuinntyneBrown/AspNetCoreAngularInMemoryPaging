@@ -10,32 +10,29 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AspNetCoreAngularInMemoryPaging.Api.Features
 {
-    public class GetTeams
+    public class GetPlayers
     {
-        public class Request : IRequest<Response> { }
+        public class Request: IRequest<Response> { }
 
-        public class Response : ResponseBase
+        public class Response: ResponseBase
         {
-            public List<TeamDto> Teams { get; set; }
+            public List<PlayerDto> Players { get; set; }
         }
 
-        public class Handler : IRequestHandler<Request, Response>
+        public class Handler: IRequestHandler<Request, Response>
         {
             private readonly IAspNetCoreAngularInMemoryPagingDbContext _context;
-
+        
             public Handler(IAspNetCoreAngularInMemoryPagingDbContext context)
                 => _context = context;
-
+        
             public async Task<Response> Handle(Request request, CancellationToken cancellationToken)
             {
-                return new()
-                {
-                    Teams = await _context.Teams
-                    .Include(x => x.Players)
-                    .Select(x => x.ToDto()).ToListAsync()
+                return new () {
+                    Players = await _context.Players.Select(x => x.ToDto()).ToListAsync()
                 };
             }
-
+            
         }
     }
 }

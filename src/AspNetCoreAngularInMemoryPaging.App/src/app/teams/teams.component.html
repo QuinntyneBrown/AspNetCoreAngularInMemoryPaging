@@ -4,7 +4,11 @@
   <ul>
     <li *ngFor="let team of vm.teams | slice:start:end">
       <a>{{ team.city }} {{ team.name }}</a>
-      <a class="actions__edit" (click)="edit(team)">Edit</a>
+      <div>
+        <a class="actions__edit" (click)="edit(team)">Edit</a>
+        <a class="actions__edit" (click)="detail(team)">Detail</a>
+        <a class="actions__edit" >Delete</a>
+      </div>
     </li>
   </ul>
 
@@ -17,12 +21,4 @@
   ></mat-paginator>
 
 </ng-container>
-
-<mat-paginator
-
-[length]="0"
-[pageSize]="0"
-[pageSizeOptions]="pageSizeOptions"
-(page)="pageIndex = $event.pageIndex; pageSize = $event.pageSize;"
-></mat-paginator>
 

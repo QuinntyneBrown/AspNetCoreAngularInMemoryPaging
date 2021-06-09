@@ -11,8 +11,22 @@ namespace AspNetCoreAngularInMemoryPaging.Api.Data
         {
             foreach(var team in new List<Team>
             {
-                new("Chicago","Bulls"),
-                new("Toronto","Raptors"),
+                new("Chicago","Bulls", new() { 
+                    new("Michael Jordan"),
+                    new("Scottie Pippen"),
+                    new("Dennis Rodman"),
+                    new("John Paxton")
+                }),
+                new("Toronto","Raptors", new() { 
+                    new("Pascal Siakam"),
+                    new("Kawahi Leonard"),
+                    new("Fred Vanfleet"),
+                    new("Norman Powel"),
+                    new("Kyle Lowry"),
+                    new("DeMar DeRozan"),
+                    new("Marc Gasol"),
+                    new("Danny Green")
+                }),
                 new("New York","Knicks"),
                 new("Charlotte","Hornets"),
                 new("Miami","Heat"),

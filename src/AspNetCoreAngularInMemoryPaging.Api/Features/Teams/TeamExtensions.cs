@@ -1,5 +1,5 @@
-using System;
 using AspNetCoreAngularInMemoryPaging.Api.Models;
+using System.Linq;
 
 namespace AspNetCoreAngularInMemoryPaging.Api.Features
 {
@@ -11,9 +11,9 @@ namespace AspNetCoreAngularInMemoryPaging.Api.Features
             {
                 TeamId = team.TeamId,
                 City = team.City,
-                Name = team.Name
+                Name = team.Name,
+                Players = team.Players.Select(x => x.ToDto()).ToList()
             };
         }
-
     }
 }
