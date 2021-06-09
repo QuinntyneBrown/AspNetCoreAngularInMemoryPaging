@@ -1,4 +1,23 @@
+<ng-container *ngIf="vm$ | async as vm">
 
-<main>
-  <router-outlet></router-outlet>
-</main>
+  <h2>Teams</h2>
+
+  <!-- grid #1 -->
+
+  <div>
+
+    <app-team-card [team]="team" *ngFor="let team of vm.teams"></app-team-card>
+
+  </div>
+
+  <h2>Players</h2>
+
+  <!-- grid #2 that must have the identicial css properties as grid #1-->
+
+  <div>
+
+    <app-player-card [player]="player" *ngFor="let player of vm.players"></app-player-card>
+
+  </div>
+
+</ng-container>
